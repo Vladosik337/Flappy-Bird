@@ -1,0 +1,53 @@
+// Colors
+$mainColor: #2C3136;
+
+// Break points
+$breakpoint-xs: 320px;   // Extra small devices (portrait phones)
+$breakpoint-sm: 576px;   // Small devices (landscape phones)
+$breakpoint-md: 768px;   // Medium devices (tablets)
+$breakpoint-lg: 992px;   // Large devices (desktops)
+$breakpoint-xl: 1200px;  // Extra large devices (large desktops)
+$breakpoint-xxl: 1400px; // Extra extra large devices (larger desktops)
+
+@import "reset";
+@import "normalize.css";
+
+// Import Fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body{
+  font-family: 'Open Sans';
+  color: $mainColor;
+  font-size: 16px;
+}
+
+[class*="__container"]{
+  max-width: 1180px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 10px;
+
+  }
+}
+
+.wrapper{
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: clip;
+}
+
+.wrapper > main{
+  flex-grow: 1;
+}
+
+.image{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+}
