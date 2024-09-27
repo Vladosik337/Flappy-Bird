@@ -21,30 +21,6 @@ body{
   font-size: 16px;
 }
 
-[class*="__container"]{
-  max-width: 1180px;
-  padding: 0 20px;
-  margin: 0 auto;
-
-  @media (max-width: $breakpoint-sm) {
-    padding: 0 10px;
-
-  }
-}
-
-.wrapper{
-  min-height: 100%;
-
-  display: flex;
-  flex-direction: column;
-
-  overflow: clip;
-}
-
-.wrapper > main{
-  flex-grow: 1;
-}
-
 .image{
   width: 100%;
   height: auto;
@@ -66,21 +42,49 @@ body{
   width: 500px;
   height: 580px;
   position: absolute;
+
+  background-size: contain;
+  background-image: url("public/images/background/background-night.png");
 }
 
 .ground{
-  background-color: brown;
   width: 500px;
   height: 150px;
   position: absolute;
   top: 580px;
+  z-index: 50;
+
+  background-size: contain;
+  background-image: url("public/images/ground/base.png");
 }
 
 .bird{
-  background-color: yellow;
   position: absolute;
-  width: 60px;
+  width: 65px;
   height: 45px;
+
+  animation-name: identifier;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+  transition: 0.1s;
+
+  background-size: cover;
+  background-image: url('public/images/bird/redbird-downflap.png');
+}
+
+@keyframes identifier {
+  0% {
+    background-image: url('public/images/bird/redbird-downflap.png');
+
+  }
+  50% {
+    background-image: url('public/images/bird/redbird-midflap.png');
+
+  }
+  100% {
+    background-image: url('public/images/bird/redbird-upflap.png');
+
+  }
 }
 
 .obstacle{
@@ -88,12 +92,19 @@ body{
   width: 60px;
   height: 300px;
   position: absolute;
+
+  background-size: cover;
+  background-image: url("public/images/pipe/pipe-green.png");
 }
 
 .topObstacle{
   background-color: green;
-  transform: rotate(180deg);
   width: 60px;
   height: 300px;
   position: absolute;
+
+  transform: rotate(180deg);
+  background-size: cover;
+  background-image: url("public/images/pipe/pipe-green.png");
 }
+//public/images/pipe-red.png

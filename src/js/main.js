@@ -82,9 +82,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
     generateObstacle();
 
     function gameOver(){
+
         clearInterval(gameTimerId);
         IsGameOver = true;
-        alert('Game Over!')
+        // alert('Game Over!')
+        bird.style.animation = 'none';
+        bird.style.transform = 'rotate(10deg)';
+
         document.removeEventListener('click', jump);
     }
 });
