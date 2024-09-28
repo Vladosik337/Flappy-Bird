@@ -9,6 +9,7 @@ const gameDisplay = document.querySelector('.game-container');
 const ground = document.querySelector('.ground');
 const sky = document.querySelector('.sky');
 
+
 let birdLeft = 220;
 let birdBottom = 100;
 let gravity = 2;
