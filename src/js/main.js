@@ -17,6 +17,8 @@ let gap = 430;
 let obstacleIntervals = []; // Array to store obstacle movement intervals
 let obstacleTimeoutId; // To store the obstacle generation timeout
 
+let hasPassedObstacle = false; // Flag to track if the bird has passed the obstacle
+
 function startGame(){
     birdBottom -= gravity;
     bird.style.bottom = birdBottom + 'px';
@@ -42,6 +44,8 @@ function generateObstacle() {
     let obstacleBottom = randomHeight;
     const obstacle = document.createElement('div');
     const topObstacle = document.createElement('div');
+
+    let hasPassedObstacle = false; // Reset for new obstacle
 
     if (!IsGameOver) {
         obstacle.classList.add('obstacle');
@@ -78,6 +82,13 @@ function generateObstacle() {
             birdBottom === 0
         ) {
             gameOver();
+        }
+
+        // Play point sound if the bird passes the obstacle without collision
+        if (!hasPassedObstacle && obstacleLeft < birdLeft) {
+            const audioPoint = new Audio('public/audio/point.ogg');
+            audioPoint.play();
+            hasPassedObstacle = true; // Ensure the sound plays only once per obstacle
         }
     }
 
